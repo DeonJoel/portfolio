@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deon Joel Pinto | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <style>
+    #animated-tagline {
+      transition: opacity 0.4s ease-in-out;
+    }
+    nav a.active {
+      color: var(--accent-color);
+      font-weight: 700;
+      border-bottom: 2px solid var(--accent-color);
+    }
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --accent-color: #6c63ff;
+    }
+
+    [data-theme="dark"] {
+  footer {
+    background-color: #2c2c3a !important;
+    box-shadow: 0 -2px 15px rgba(255, 255, 255, 0.1);
+  }
+      --bg-color: #1e1e2f;
+      --text-color: #f0f0f0;
+      --accent-color: #ff79c6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    header {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-color);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .toggle-theme {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      margin-top: 0.5rem;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .resume-container {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .resume-container iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+    }
+
+    .download-resume {
+      position: absolute;
+      top: -3rem;
+      right: 0;
+      font-size: 1.5rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+    .socials a {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .resume-container iframe {
+        height: 60vh;
+      }
+    }
+    .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  will-change: opacity, transform;
+}
+
+  .fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+  .scrolled {
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+[data-theme="dark"] .scrolled {
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+[data-theme="dark"] .scrolled {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="#about" style="text-decoration: none; color: inherit;">DEON JOEL PINTO</a></div>
+    <nav>
+      <ul>
+        <li><a href="#personal-info">ABOUT</a></li>
+        <li><a href="#resume">RESUME</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#certificates">CERTIFICATES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-theme" onclick="toggleTheme()">🌓</div>
+  </header>
+
+  <section id="about"  class="hero fade-in">
+    <img src="boy.png" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-color);">
+    <h1>Hi, I'm Deon Joel Pinto</h1>
+    <p id="animated-tagline">Full Stack Developer</p>
+  </section>
+
+  <section id="personal-info" class="section fade-in" >
+    <h2>About me</h2>
+    <div style="max-width: 900px; margin: auto; line-height: 2;">
+        <h3 style="color: var(--accent-color); margin-top: 2rem;"><p><strong>📍 Address:</strong></h3> Near St. Don Bosco Church, Mulladka, Karnataka - 57****</p>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;"><p><strong>📧 Email:</strong></h3>**********460@gmail.com</p>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;"><p><strong>📞 Phone:</strong></h3> 90***56***</p>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;"><p><strong>🎯 Status:</strong></h3>Open to work.</p>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;">🎓 Education</h3>
+      <ul>
+        <li><strong>MCA:</strong> Reva University (2024–26)</li>
+        <li><strong>BCA:</strong> St. Mary's College, Shirva (8.45 CGPA, 2021–24)</li>
+        <li><strong>PUC:</strong> Sri Lakshmi Janardhan PU College, Belman (458/600, 2019–21)</li>
+        <li><strong>SSLC:</strong> Sri Lakshmi Janardhan International School, Belman (360/500, 2019)</li>
+      </ul>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;">🛠 Skills</h3>
+      <p> C, C++, HTML & CSS, SQL, Java (Basics), Python (Basics), MS Office tools</p>
+      <h3 style="color: var(--accent-color); margin-top: 2rem;">🗣 Languages</h3>
+      <p>English (written and spoken),Kannada (written and spoken),Hindi (written and spoken),Konkani (spoken),Tulu (spoken)</p>
+    </div>
+  </section>
+
+  <section id="resume" class="section fade-in" >
+  <h2>Resume</h2>
+  <div class="resume-container" style="text-align:center">
+    <button onclick="viewResume()" style="margin: 0.5rem; padding: 0.7rem 1.5rem; font-size: 1rem; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; cursor: pointer;">📄 View Resume</button>
+    <a href="resume.pdf" download style="margin: 0.5rem; padding: 0.7rem 1.5rem; font-size: 1rem; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; text-decoration: none;">⬇️ Download Resume</a>
+    <div id="resume-viewer" style="margin-top: 2rem; display: none;">
+      <object data="resume.pdf" type="application/pdf" width="100%" height="1000px">
+        <p>Your browser does not support PDFs. <a href="resume.pdf" download>Download the resume</a>.</p>
+      </object>
+    </div>
+  </div>
+</section>
+<script>
+  function viewResume() {
+    const viewer = document.getElementById('resume-viewer');
+    viewer.style.display = viewer.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+  <section id="projects" class="section fade-in">
+  <h2>Projects</h2>
+  <div style="max-width: 900px; margin: auto; display: grid; gap: 2rem;">
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">🔧 IoT Water Level Detection</h3>
+      <p>This IoT-based system detects the water level in a container and represents it in percentage. When the water crosses a certain threshold, a buzzer is activated and a display shows a "Full" message, making it ideal for household or industrial water management.</p>
+    </div>
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">🌐 RuBAS - Rural Bank Accounting Survey</h3>
+      <p>RuBAS is a web-based application designed to track rural banking development. It surveys population and bank account statistics, offering insights into the ratio of account holders to total population. This project supports informed decisions for financial inclusion.</p>
+    </div>
+    <h3 style="text-align:center; margin-bottom: 1rem; color: var(--accent-color);">More Coming soon....</h3>
+  </div>
+</section>
+
+<section id="certificates" class="section fade-in">
+  <h2>Certificates</h2>
+  <div style="max-width: 900px; margin: auto; display: grid; gap: 2rem;">
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">🏅 Coding & Debugging Competition</h3>
+      <p>Secured 2nd place in the team competition at an inter-collegiate fest held at Sharadha College, Mangalore in 2024.</p>
+    </div>
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">🥋 District Level Karate Championship</h3>
+      <p>Won 2nd place in the karate championship during class 8 under BUDOKON Karate and Martial Arts Do(R.), Karnataka.</p>
+    </div>
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">🎤 IT Fest Competitions</h3>
+      <p>Won 1st place in the Stress Interview and PPT Presentation competitions held during the annual IT fest at St. Mary's College.</p>
+    </div>
+    <div style="padding: 1.5rem; border: 1px solid var(--accent-color); border-radius: 12px; background: rgba(0,0,0,0.03);">
+      <h3 style="color: var(--accent-color);">💻 Coding Fests at Nitte College</h3>
+      <p>Ranked in the top 6 and top 5 in separate coding competitions during MCA fests held in Nitte College, Karkala (2022 and 2024).</p>
+    </div>
+  </div>
+  <div style="margin-top: 4rem;">
+    <h3 style="text-align:center; margin-bottom: 1rem; color: var(--accent-color);">📸 Certificate Gallery</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: auto;">
+      <div style="text-align: center;">
+        <img src="certificates/coding-debugging.jpg" alt="Coding & Debugging Competition" style="width:100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.5rem; font-weight: 500;">Coding & Debugging Competition</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="certificates/karate.jpg" alt="District Level Karate Championship" style="width:100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.5rem; font-weight: 500;">District Level Karate Championship</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="certificates/it-fest.jpg" alt="IT Fest Competitions" style="width:100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.5rem; font-weight: 500;">IT Fest Competitions</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="certificates/nitte-coding.jpg" alt="Coding Fests at Nitte College" style="width:100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.5rem; font-weight: 500;">Coding Fests at Nitte College</p>
+      </div>
+    </div>
+</section>
+
+<section id="contact" class="section fade-in" >
+    <h2>Contact</h2>
+    <div class="socials">
+      <a href="https://github.com/DeonJoel" title="GitHub">🐱 GitHub</a>
+      <a href="https://www.linkedin.com/in/deon-joel-pinto-664b5521b/" title="LinkedIn">💼 LinkedIn</a>
+    </div>
+  </section>
+
+<section class="section fade-in" style="text-align:center; margin:2rem auto ;">
+  <h2 style="font-size: 2rem; color: var(--accent-color);">Thank You for Visiting!</h2>
+  <p style="font-size: 1.2rem; opacity: 0.8;">Hope you enjoyed exploring my portfolio. Stay connected!</p>
+</section>
+  
+  <script>
+    function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+}
+
+    window.onload = () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }
+      anime({ targets: '.hero h1, .hero p, .hero img',
+        translateY: [50, 0],
+        opacity: [0, 1],
+        duration: 1500,
+        delay: anime.stagger(200),
+        easing: 'easeOutExpo'
+      });
+    };
+  </script>
+<script>
+  const taglines = ["Full Stack Developer", "Software Engineer", "Web Developer"];
+  let taglineIndex = 0;
+  const taglineElement = document.getElementById("animated-tagline");
+
+  setInterval(() => {
+    taglineIndex = (taglineIndex + 1) % taglines.length;
+    taglineElement.style.opacity = 0;
+    setTimeout(() => {
+      taglineElement.textContent = taglines[taglineIndex];
+      taglineElement.style.opacity = 1;
+    }, 400);
+  }, 3000);
+</script>
+<script>
+  const header = document.querySelector("header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // observer.unobserve(entry.target); // keep observing for fade out
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(fader => {
+    let delay = 0;
+  fader.style.transitionDelay = `${delay}s`;
+  delay += 0.2;
+  observer.observe(fader);
+  });
+</script>
+<footer style="padding: 2rem 1rem; text-align: center; font-size: 0.9rem; color: var(--text-color); background-color: var(--bg-color); box-shadow: 0 -2px 15px rgba(0,0,0,0.1);">
+  <style>
+    .heart {
+      display: inline-block;
+      animation: beat 1s infinite;
+      color: red;
+    }
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+    .chatgpt-logo {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+    }
+  </style>
+  <p>&copy; 2025 Deon Joel Pinto. All rights reserved.</p>
+  <p>Made with <span class='heart'>❤️</span> and the help of <strong>ChatGPT</strong><img class='chatgpt-logo' src='https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' alt='ChatGPT Logo'>.</p>
+</footer>
+</body>
+</html>
